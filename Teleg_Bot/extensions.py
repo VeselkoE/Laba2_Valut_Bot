@@ -10,8 +10,7 @@ class APIException(Exception):
 """
 class ConverterValue:
     @staticmethod
-    # Используется "-> float" чтобы можно было умножить соотношение валюты на указанное кол-во
-    # Так же используется команда "capitalize()" чтобы введеное значение всегда начиналось записывать с заглавной буквы.
+    # Используется команда "capitalize()" чтобы введеное значение всегда начиналось записывать с заглавной буквы.
     def get_price(quote: str, base: str, amount: str)->float:
         if quote.lower() == base.lower():
             raise APIException(f'Перевод одинаковой валюты не возможен')
