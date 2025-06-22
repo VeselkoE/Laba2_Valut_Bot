@@ -1,6 +1,7 @@
+from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
-
+from New_Portal.port import POST_TYPES
 
 class Author(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -16,17 +17,10 @@ class Author(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=100, unique=True)
 
-
 class Post(models.Model):
-    ARTICLE = 'AR'
-    NEWS = 'NW'
-    POST_TYPE_CHOICES = [
-        (ARTICLE, 'Статья'),
-        (NEWS, 'Новость'),
-    ]
 
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    post_type = models.CharField(max_length=2, choices=POST_TYPE_CHOICES)
+    post_type = models.CharField(max_length=2, choices=POST_TYPES)
     created_at = models.DateTimeField(auto_now_add=True)
     categories = models.ManyToManyField('Category', through='PostCategory')
     title = models.CharField(max_length=200)
