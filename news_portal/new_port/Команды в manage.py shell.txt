@@ -1,0 +1,57 @@
+# В приложеной БД все операции были выполненный, можно или повторно внести эти данные, но будут идти  другие id или взять БД db_clear.sqlite3, в ней выполнена только миграция таблиц.
+python manage.py shell
+
+# Создаем пользователей
+user1 = User.objects.create_user('user1')
+user2 = User.objects.create_user('user2')
+
+# Создать объекты Author
+author1 = Author.objects.create(user=user1)
+author2 = Author.objects.create(user=user2)
+
+# Добавить 4 категории
+cat1 = Category.objects.create(name='Спорт')
+cat2 = Category.objects.create(name='Политика')
+cat3 = Category.objects.create(name='Образование')
+cat4 = Category.objects.create(name='Наука')
+
+# Добавить 2 статьи и 1 новость
+post1 = Post.objects.create(author=author1, post_type='AR', title='Статья 1', text='Текст первой статьи')
+post2 = Post.objects.create(author=author1, post_type='NW', title='Новость 1', text='Текст первой новости')
+post3 = Post.objects.create(author=author2, post_type='AR', title='Статья 2', text='Текст второй статьи')
+
+# Присвоить категории
+post1.categories.add(cat1)  # Статья 1 имеет 2 категории
+post2.categories.add(cat2)         # Новость 1 имеет 1 категорию
+post3.categories.add(cat3, cat4)         # Статья 2 имеет 1 категорию
+
+# Добавить комментарии
+comment1 = Comment.objects.create(post=post1, user=user1, text='Комментарий к первой статье')
+comment2 = Comment.objects.create(post=post1, user=user2, text='Еще комментарий к первой статье')
+comment3 = Comment.objects.create(post=post2, user=user1, text='Комментарий к первой новости')
+comment4 = Comment.objects.create(post=post3, user=user2, text='Комментарий ко второй статье')
+
+# Скорректировать рейтинги
+post1.like()
+post1.like()
+post1.like()
+post1.dislike()
+comment1.like()
+
+# Обновить рейтинги пользователей
+author1.update_rating()
+author2.update_rating()
+
+# Вывести username и рейтинг лучшего пользователя
+top_author = Author.objects.order_by('-rating').first()
+print(f'Имя пользователя(username): {top_author.user.username} и его рейтинг = {top_author.rating}')
+
+# Вывести дату, username автора, рейтинг, заголовок и превью лучшей статьи
+top_post = Post.objects.order_by('-rating').first()
+print(f'Дата: {top_post.created_at}, имя пользователя автора: {top_post.author.user.username}, его рейтинг: {top_post.rating}, с заголовком "{top_post.title}" статьи "{top_post.preview()}"')
+
+# Вывести все комментарии (дата, пользователя, рейтинг, текста) к лучшей статьи
+comments = best_post.comment_set.all()
+for comment in comments:
+    print(f'дата {comment.created_at}, пользователь {comment.user.username}, рейтинг {comment.rating}, текст {comment.text}')
+
