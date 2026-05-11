@@ -1,0 +1,21 @@
+{% extends "News/default.html" %}
+{% load censor_filters %}
+
+{% block title %}Список новостей{% endblock %}
+
+{% block content %}
+
+    <center><header><h1>Новости</h1></header></center>
+    {% if news %}
+        {% for item in news %}
+            <div class="news-card">
+                <a href="{% url 'task18:news_details_18' item.id %}" class="news-title">{{ item.title|censor }}</a>
+                <div class="news-date">{{ item.date_pub|date:"d.m.Y" }}</div>
+                <div class="news-text">{{ item.text|slice:":20"|censor }}...</div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Новостей нет.</p>
+    {% endif %}
+
+{% endblock %}

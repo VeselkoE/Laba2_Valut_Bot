@@ -1,4 +1,14 @@
-<!-- изменения шрифта, размера и цвета -->
+{% extends "flatpages/default.html" %}
+
+{% block title %}Первая страница{% endblock %}
+
+{% block content %}
+
+<h2 style="color: rgb(50,25,0)"><b><i>{{ flatpage.content }}</i></b></h2>
+
+{% endblock %}
+
+<!-- изменения шрифта, размера и цвета
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +17,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{{ flatpage.title }}</title>
-        <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
         {% load static %}
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
 </head>
@@ -35,4 +43,4 @@
         </div>
 <h2 style="color: rgb(50,25,0)"><b><i>{{ flatpage.content }}</i></b></h2>
 </body>
-</html>
+</html-->

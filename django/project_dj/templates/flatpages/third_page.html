@@ -1,4 +1,15 @@
-<!-- страница с дубликатом -->
+{% extends "flatpages/default.html" %}
+
+{% block title %}Третья страница{% endblock %}
+
+{% block content %}
+
+<p><h1> {{ flatpage.content }}</h1></p>
+<p><h1> {{ flatpage.content }}</h1></p>
+
+{% endblock %}
+
+<!-- страница с дубликатом
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +18,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{{ flatpage.title }}</title>
-        <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
         {% load static %}
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
 </head>
@@ -36,4 +45,4 @@
 <p><h1> {{ flatpage.content }}</h1></p>
 <p><h1> {{ flatpage.content }}</h1></p>
 </body>
-</html>
+</html-->

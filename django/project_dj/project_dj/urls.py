@@ -1,23 +1,20 @@
-"""
-URL configuration for project_dj project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path, include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('pages/', include('django.contrib.flatpages.urls')),
+  #  path('task18/', include(('simpleapp.urls_18', 'task18'),
+    #  namespace='task18')),
+  #  path('task19/', include(('simpleapp.urls_19', 'task19'),
+    #  namespace='task19')),
 ]
+
+
+#Для каждого модуля создан свой urls, где в название пишется его номер
+for i in range(18, 20):
+    urlpatterns.append(
+        path(f'task{i}/', include((f'simpleapp.urls_{i}', f'task{i}'),
+                                 namespace=f'task{i}'))
+    )

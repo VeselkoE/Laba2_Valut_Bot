@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>{% block title %}Новости{% endblock %}</title>
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    {% load static %}
+     <style>
+        .news-card {
+            background: white;
+            padding: 15px;
+            margin: 0 auto;
+            width: 40%;
+            border-radius: 10px;
+            box-shadow: 0 2px 7px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: box-shadow 0.3s ease;
+        }
+        .news-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .news-title {
+            margin: 0 auto;
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        .news-date {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 18px;
+        }
+        .news-text {
+            flex-grow: 1;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Начальная страница</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'task18:task18' %}">Задание</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/task18/news/">Новости</a></li>
+                    <li class="nav-item"><--a class="nav-link" href="/admin/simpleapp/news/">Добавить новость<--/a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        {%block content %}{% endblock %}
+    </main>
+        <div class="container">
+            <div class="text-center mt-5">
+                <h1>{{ flatpage.title }}</h1>
+            </div>
+        </div>
+    </body>
+</html>

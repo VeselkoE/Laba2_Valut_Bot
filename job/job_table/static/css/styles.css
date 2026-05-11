@@ -1,0 +1,235 @@
+/*@charset "UTF-8"
+
+body{
+    color: ffff00;
+}
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap");
+@import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css");
+.menu {
+    font-family: "Comfortaa", sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #fff4f5;
+}
+.menu li a {
+    display: block;
+    height: em;
+    width: 5em;
+    text-indent: -500em;
+    line-height: 5em;
+    text-align: center;
+    color: #ff5c62;
+    background: #fff4f5;
+    position: relative;
+    border-bottom: 1px solid #ffe2e3;
+    -webkit-transition: background 0.3s ease-in-out;
+    -o-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+.menu li a:before {
+    font-family: FontAwesome;
+    text-indent: 0em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.4em;
+}
+.menu li a.search:before {
+    content: "\f002";
+}
+.menu li a.archive:before {
+    content: "\f187";
+}
+.menu li a.pencil:before {
+    content: "\f040";
+}
+.menu li a.contact:before {
+    content: "\f003";
+}
+.menu li a.about:before {
+    content: "\f007";
+}
+.menu li a.home:before {
+    content: "\f015";
+}
+.menu li a:hover {
+    background: #ff5c62;
+    color: #fff;
+}
+.menu li.current a {
+    background: #ff5e5e;
+    color: #fff;
+}
+.menu li a.active {
+    background: #ff5e5e;
+    color: #fff;
+}
+.menu li a.active:after {
+    position: absolute;
+    left: 5em;
+    top: 0;
+    content: "";
+    border: 2.5em solid transparent;
+    border-left-color: #ff5c62;
+    border-width: 2.5em 1em;
+}
+.menu li {
+    position: relative;
+}
+.menu li:after {
+    content: attr(title);
+    position: absolute;
+    left: 5em;
+    top: 0;
+    height: 5em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    background: #ff5c62;
+    padding: 2em;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    color: white;
+}
+.menu li:hover:after {
+    visibility: visible;
+    opacity: 1;
+}
+@media screen and (max-height: 34em) {
+    .menu li {
+        font-size: 70%;
+    }
+}*/
+
+.menu {
+    font-family: "Comfortaa", sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: #fff4f5;
+}
+
+.menu li a {
+    display: block;
+    height: 5em; /* Исправлено: добавлено значение */
+    width: 5em;
+    text-indent: -9999px; /* Улучшено: более стандартное значение для скрытия текста */
+    line-height: 5em; /* Исправлено: опечатка */
+    text-align: center;
+    color: #ff5c62;
+    background: #fff4f5;
+    position: relative;
+    border-bottom: 1px solid #ffe2e3;
+    -webkit-transition: background 0.3s ease-in-out;
+    -o-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+}
+
+.menu li a:before {
+    font-family: "Font Awesome 6 Free"; /* Обновлено для Font Awesome 6 */
+    font-weight: 900; /* Для Solid стиля иконок */
+    text-indent: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Иконки */
+.menu li a.search:before {
+    content: "\f002";
+}
+.menu li a.archive:before {
+    content: "\f187";
+}
+.menu li a.pencil:before {
+    content: "\f040";
+}
+.menu li a.contact:before {
+    content: "\f003";
+}
+.menu li a.about:before {
+    content: "\f007";
+}
+.menu li a.home:before {
+    content: "\f015";
+}
+
+.menu li a:hover {
+    background: #ff5c62;
+    color: #fff;
+}
+
+.menu li.current a {
+    background: #ff5e5e;
+    color: #fff;
+}
+
+.menu li a.active {
+    background: #ff5e5e;
+    color: #fff;
+}
+
+.menu li a.active:after {
+    position: absolute;
+    left: 5em;
+    top: 0;
+    content: "";
+    border: 2.5em solid transparent;
+    border-left-color: #ff5c62;
+    border-width: 2.5em 1em;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu li:after {
+    content: attr(title);
+    position: absolute;
+    left: 5em;
+    top: 0;
+    height: 5em;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    background: #ff5c62;
+    padding: 2em;
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    color: white;
+}
+
+.menu li:hover:after {
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (max-height: 34em) {
+    .menu li {
+        font-size: 70%;
+    }
+}

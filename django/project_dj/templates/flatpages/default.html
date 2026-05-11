@@ -5,34 +5,91 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Bare - Start Bootstrap Template</title>
-        <!-- Favicon-->
+        <title>{% block title %}Стартовая страница{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
         {% load static %}
         <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <style>
+            .button-list_module_site{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding-left: 20%;
+                padding-right: 20%;
+                box-sizing: border-box;
+            }
+            .link-button-list_module_site{
+                width: 45%;
+                margin-bottom: 30px;
+                text-align: center;
+                color: #555;
+                border: 1px solid #000;
+                border-radius: 8px;
+                padding: 10px 5px;
+                box-sizing: border-box;
+                transition: box-shadow 0.3s;
+            }
+            .link-button-list_module_site:hover {
+                transform: scale(1.3);
+                box-shadow: 0 0 8px #007bff; /* синяя тень вокруг кнопки */
+            }
+        </style>
     </head>
+    <!  >
     <body>
-        <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="/start/">Стартовая страница</a>
+                <a class="navbar-brand" href="/">Начальная страница</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="/first_page/">страница с измененным текстом</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/second_page/">страница на проверку авторизации</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/third_page/">страница с дубликатом</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Выбор страницы
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="/first_page/">страница с измененным текстом</a></li>
+                                <li><a class="dropdown-item" href="/second_page/">страница на проверку авторизации</a></li>
+                                <li><a class="dropdown-item" href="/third_page/">страница с дубликатом</a></li>
+                            </ul>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="/admin/">Админ</a></li>
                     </ul>
                 </div>
-            </div>
+                </div>
         </nav>
         <div class="container">
             <div class="text-center mt-5">
                 <h1>{{ flatpage.title }}</h1>
             </div>
         </div>
+        <main>
+            {%block content %}{% endblock %}
+        </main>
+        <div class="container">
+            <div class="text-center mt-5">
+                <h1>Выбор модуля</h1>
+            </div>
+        </div>
+        <!--target="_blank-->
+        <div class="button-list_module_site">
+            <a href="https://github.com/VeselkoE/Laba_tic_tac_toe_Veselko_Egor/tree/master/tic_tac_toe" class="link-button-list_module_site" target="_blank"> Программа крести-нолики </a>
+            <a href="https://github.com/VeselkoE/Laba2_Valut_Bot/tree/master/Teleg_Bot" class="link-button-list_module_site" target="_blank"> Задание с Ботом </a>
+            <a href="https://github.com/VeselkoE/Laba2_Valut_Bot/tree/master/news_portal" class="link-button-list_module_site">Модуль 17 - Работа с БД через команды в терминале</a>
+            <a href="{% url 'task18:task18' %}" class="link-button-list_module_site">Модуль 18</a>
+            <a href="{% url 'task19:task19' %}" class="link-button-list_module_site">Модуль 19</a>
+            <a href="/task20/" class="link-button-list_module_site">Модуль 20</a>
+            <a href="/task21/" class="link-button-list_module_site">Модуль 21</a>
+            <a href="/task22/" class="link-button-list_module_site">Модуль 22</a>
+            <a href="/task23/" class="link-button-list_module_site">Модуль 23</a>
+            <a href="/task24/" class="link-button-list_module_site">Модуль 24</a>
+            <a href="/task25/" class="link-button-list_module_site">Модуль 25</a>
+            <a href="/task26/" class="link-button-list_module_site">Модуль 26</a>
+            <a href="/task27/" class="link-button-list_module_site">Модуль 27</a>
+            <a href="/task28/" class="link-button-list_module_site">Модуль 28</a>
+            <a href="/task29/" class="link-button-list_module_site">Модуль 29</a>
+            <a href="/task30/" class="link-button-list_module_site">Модуль 30</a>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
-

@@ -1,0 +1,61 @@
+/* styles.css */
+:root {
+  --bg: #f5f7fa;
+  --topbar: #1e90ff;
+  --topbar-dark: #1b6bd1;
+  --text: #111;
+  --link: #fff;
+  --gap: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Arial, sans-serif;
+  height: 100%;
+}
+
+.topbar {
+  background: linear-gradient(135deg, var(--topbar) 0%, var(--topbar-dark) 100%);
+  color: #fff;
+  padding: 12px 20px;
+  position: sticky; /* прилипаем к верху при скролле, если нужно */
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,.15);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  justify-content: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.nav-item {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background .2s;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,.15);
+}
+
+.content {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
